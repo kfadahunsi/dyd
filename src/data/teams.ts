@@ -1,0 +1,156 @@
+export const teamList = [
+    {
+        name: "Amassing Silvaware Athletic",
+        acronym: "ASA",
+        manager: "Kevwe Fadahunsi",
+        badgeImage: "asa.png",
+    },
+    {
+        name: "Darwin's Theory Futbol",
+        acronym: "DTF",
+        manager: "Kola Fadahunsi",
+        badgeImage: "dtf.jpg",
+    },
+    {
+        name: "Saint Laurent Slot",
+        acronym: "SLS",
+        manager: "Fisayo Ayodeji",
+        badgeImage: "sls.jpeg",
+    },
+    {
+        name: "Maatsen Margiela United FC",
+        acronym: "MMUFC",
+        manager: "Ademide Peters",
+        badgeImage: "mmufc.jpg",
+    },
+    {
+        name: "Super Slimey Futbol",
+        acronym: "SSFC",
+        manager: "Afolabi Adebajo",
+        badgeImage: "ssfc.jpeg",
+    },
+    {
+        name: "Duck Duck Guus Poyet",
+        acronym: "DDGP",
+        manager: "Kolapo Akande",
+        badgeImage: "ddgp.jpg",
+    },
+]
+
+export const championsList = [
+    {
+        name: "Loic Remy Boys",
+        manager: "Kevwe Fadahunsi",
+        year: "17/18",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Astroworld FC",
+        manager: "Fisayo Ayodeji",
+        year: "18/19",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Law Abiding Sigurdssons",
+        manager: "Kola Fadahunsi",
+        year: "19/20",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Law Abiding Sigurdssons",
+        manager: "Kola Fadahunsi",
+        year: "20/21",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "WaivereDalot of Gems",
+        manager: "Kevwe Fadahunsi",
+        year: "21/22",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Darwins Theory Futbol",
+        manager: "Kola Fadahunsi",
+        year: "22/23",
+        points: 0,
+        img: "",
+    },
+     {
+        name: "Darwins Theory Futbol",
+        manager: "Kola Fadahunsi",
+        year: "23/24",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Maatsen Margiela United FC",
+        manager: "Ademide Peters",
+        year: "24/25",
+        points: 0,
+        img: "",
+    },
+]
+
+export const relegationList = [
+    {
+        name: "Rather You Than Mee",
+        manager: "Fisayo Ayodeji",
+        year: "17/18",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Duey Not Nice",
+        manager: "Afolabi Adebajo",
+        year: "18/19",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Law Abiding Sigurdssons",
+        manager: "Kola Fadahunsi",
+        year: "19/20",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Law Abiding Sigurdssons",
+        manager: "Kola Fadahunsi",
+        year: "20/21",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "WaivereDalot of Gems",
+        manager: "Kevwe Fadahunsi",
+        year: "21/22",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "Darwins Theory Futbol",
+        manager: "Kola Fadahunsi",
+        year: "22/23",
+        points: 0,
+        img: "",
+    },
+     {
+        name: "Darwins Theory Futbol",
+        manager: "Kola Fadahunsi",
+        year: "23/24",
+        points: 0,
+        img: "",
+    },
+    {
+        name: "WaivereDalot of Gems Athletic",
+        manager: "Kevwe Fadahunsi",
+        year: "24/25",
+        points: 0,
+        img: "",
+    },
+]

@@ -1,4 +1,5 @@
 import { getCupTable } from "@/api/api-functions"
+import FixturesAndResults from "@/components/FixturesAndResults"
 import type { CupTable } from "@/lib/types"
 import { useEffect, useState } from "react"
 
@@ -9,7 +10,7 @@ export default function Cup() {
     useEffect(()=>{
         async function loadCupTable() {
             const table = await getCupTable()
-            console.log(table)
+            //console.log(table)
             setCupTable(table)
 
         }
@@ -17,38 +18,41 @@ export default function Cup() {
     }, [])
     
   return (
-    <div className="w-full h-full prose">
+    <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center">
         {cupTable &&
-        <table className="table-auto  border-collapse">
-            <thead>
-                <tr>
-                    <td>Team</td>
-                    <td>P</td>
-                    <td>W</td>
-                    <td>D</td>
-                    <td>L</td>
-                    <td>PF</td>
-                    <td>PA</td>
-                    <td>PTS</td>
-                </tr>
-            </thead>
-            <tbody>
-                {Object.entries(cupTable).map(([name, stats])=>{
-                    return(
-                        <tr key={name}>
-                            <td>{name}</td>
-                            <td>{stats.played}</td>
-                            <td>{stats.wins}</td>
-                            <td>{stats.draws}</td>
-                            <td>{stats.losses}</td>
-                            <td>{stats.points_for}</td>
-                            <td>{stats.points_against}</td>
-                            <td>{stats.league_points}</td>
-                        </tr>
-                    )
-                })}
-            </tbody>
-        </table>}
+        <div className=" w-full flex flex-col items-center">
+            <table className="table-auto border-collapse h-72 w-full lg:w-8/12">
+                <thead>
+                    <tr className="border-b bg-gray-200">
+                        <th className="w-3/12">Team</th>
+                        <th className="border-l lg:w-1/12">P</th>
+                        <th className="lg:w-1/12">W</th>
+                        <th className="lg:w-1/12">D</th>
+                        <th className="lg:w-1/12">L</th>
+                        <th className="lg:w-1/12">PF</th>
+                        <th className="lg:w-1/12">PA</th>
+                        <th className="lg:w-1/12">PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.entries(cupTable).map(([name, stats], index)=>{
+                        return(
+                            <tr key={name} className={`border-b ${index%2 === 0 ? "": "bg-amber-100"}`}>
+                                <td className="pl-2">{name}</td>
+                                <td className="text-center border-l">{stats.played}</td>
+                                <td className="text-center">{stats.wins}</td>
+                                <td className="text-center">{stats.draws}</td>
+                                <td className="text-center">{stats.losses}</td>
+                                <td className="text-center">{stats.points_for}</td>
+                                <td className="text-center">{stats.points_against}</td>
+                                <td className="text-center">{stats.league_points}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>}
+        <FixturesAndResults/>
     </div>
   )
 }

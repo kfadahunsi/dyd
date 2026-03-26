@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { championsList, relegationList } from "@/data/teams";
+import { championsList, relegationList } from "@/data/lists";
 import TeamHistory from "@/components/TeamHistory";
+import HistoryCounter from "@/components/HistoryCounter";
 
 const displayTeam = {
   champions: championsList,
@@ -10,7 +11,7 @@ const displayTeam = {
 
 export default function History() {
 
-  const [activeTeam,setActiveTeam] = useState<"champions"|"relegated">("relegated")
+  const [activeTeam,setActiveTeam] = useState<"champions"|"relegated">("champions")
 
 
   function handleChampions(){
@@ -29,6 +30,7 @@ export default function History() {
       </div>
       <main className="flex flex-col items-center">
         <TeamHistory teams={displayTeam[activeTeam]}/>
+        <HistoryCounter teams={displayTeam[activeTeam]} team={activeTeam}/>
       </main>
     </div>
   )

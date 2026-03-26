@@ -46,3 +46,41 @@ export type CupTable = {
     MMUFC: CupStats,
     DDGP: CupStats,
 }
+
+export type Fixture = {
+    home: string,
+    away: string,
+    home_score: number | null,
+    away_score: number | null,
+    week: number
+}
+
+export type FixtureList = Fixture []
+
+export type GwStatus = {
+  current_event : number,
+  current_event_finished : boolean,
+  next_event : number,
+  processing_status : string,
+  trades_time_for_approval: boolean,
+  waivers_processed : boolean
+}
+
+export type HomeStats = {
+    event_points: number,
+    favourite_team: number,
+    id: number,
+    league_set: [number],
+    name: string,
+    overall_points: number,
+    player_first_name: string,
+    player_last_name: string,
+    region_code_long: string,
+    region_code_short: string,
+    region_name: string,
+    started_event: number,
+    transactions_event: number,
+    transactions_total : number
+}
+
+export type HomeStatsList = HomeStats[]

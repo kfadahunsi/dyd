@@ -18,22 +18,22 @@ import { useEffect, useState } from "react"
   }, [])
   
   return (
-    <div className="prose h-full w-full pt-10 flex justify-center lg:justify-center">
+    <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center">
       {table &&       
-      <table className=" table-auto  border-collapse w-11/12 h-6/12 lg:w-8/12 lg:h-8/12">
-        <thead className="bg-gray-500 h-18 text-amber-300">
-          <tr>
-            <th className="">Rank</th>
-            <th>Team</th>
+      <table className=" table-auto  border-collapse w-11/12 h-72 lg:w-8/12 ">
+        <thead>
+          <tr className="border-b bg-red-400">
+            <th>Rank</th>
+            <th className="border-l ">Team</th>
             <th>TOT</th>
           </tr>
         </thead>
         <tbody>
-            {Object.entries(table).map(([teamName, teamData])=>(
-              <tr className="h-10" key={teamName}>
-                <td className="border border-b-red-500 text-center bg-gray-100">{teamData.rank_sort}</td>
-                <td className="border border-b-red-500 text-center  bg-blue-100">{teamName}</td>
-                <td className="border border-b-red-500 text-center  bg-gray-100">{teamData.total}</td>
+            {Object.entries(table).map(([teamName, teamData], index)=>(
+              <tr key={teamName} className={`border-b ${index%2 === 0 ? "": "bg-red-200"}`} >
+                <td className="text-center">{teamData.rank_sort}</td>
+                <td className="border-l text-center ">{teamName}</td>
+                <td className=" text-center ">{teamData.total}</td>
               </tr>
             ))}
         </tbody>

@@ -6,8 +6,8 @@ const menuDetails = [
     displayText: "Home",
     },
     {
-    path: "teams",
-    displayText: "Teams",
+    path: "managers",
+    displayText: "Managers",
     },
     {
     path: "table",
@@ -24,7 +24,7 @@ const menuDetails = [
 ]
 export default function Menu() {
   return (
-    <nav className='flex gap-17 shrink-0 overflow-x-auto no-scrollbar whitespace-nowrap snap-x snap-mandatory px-4 scroll-pl-4 mt-2 lg:justify-center'>
+    <nav className='flex gap-17 shrink-0 border-y-2 overflow-x-auto no-scrollbar whitespace-nowrap snap-x snap-mandatory px-4 scroll-pl-4 mt-2 lg:justify-center lg:border-b'>
         {menuDetails.map((menuItem, menuIndex)=>{
             return <NavLink 
                         className="shrink-0 snap-start active:font-semibold" 

@@ -39,3 +39,46 @@ export async function getCupTable() {
         console.log("finally block from getCupTable reached")
     }
 }
+
+export async function getFixtures() {
+    try{
+        const response = await fetch("http://localhost:8000/fixtures")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error(err.detail || "Failed to fetch fixture data")
+        }
+        const data =  response.json()
+        return data
+    }
+    finally{
+       console.log("finally block from getCupTable reached") 
+    }
+}
+
+export async function getGwStatus() {
+    try{
+        const response = await fetch("http://localhost:8000/gw_status")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch gw status")
+        }
+        const data = response.json()
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}
+
+export async function getHomeStats() {
+    try{
+        const response = await fetch("http://localhost:8000/home_stats")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch gw status")
+        }
+        const data = response.json()
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}

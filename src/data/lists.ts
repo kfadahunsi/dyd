@@ -187,3 +187,88 @@ export const relegationList = [
         img: "../src/assets/relegated/woga.jpg",
     },
 ]
+
+
+export const premList = {
+    ARS: {
+        primary: "bg-[#e20613]",
+        secondary: "bg-white"
+    },
+    MCI: {
+        primary: "bg-[#8fbce6]",
+        secondary: "bg-white"
+    },
+    MUN: {
+        primary: "bg-[#da020e]",
+        secondary: "bg-[#fbce02]"
+    },
+    AVL: {
+        primary: "bg-[#a7a2b8]",
+        secondary: "bg-[#a0c5e7]"
+    },
+    LIV: {
+        primary: "bg-[#e1323c]",
+        secondary: "bg-[#e1323c]"
+    },
+    CHE: {
+        primary: "bg-[#153d8a]",
+        secondary: "bg-[#e1d6b2]"
+    },
+    BRE: {
+        primary: "bg-[#d72121]",
+        secondary: "bg-[#c1c1c1]"
+    },
+    EVE: {
+        primary: "bg-[#014593]",
+        secondary: "bg-[#014593]"
+    },
+    FUL: {
+        primary: "bg-white",
+        secondary: "bg-black"
+    },
+    BHA: {
+        primary: "bg-[#004899]",
+        secondary: "bg-white"
+    },
+    SUN: {
+        primary: "bg-[#db1f23]",
+        secondary: "bg-[#9f895d]"
+    },
+    NEW: {
+        primary: "bg-black",
+        secondary: "bg-white"
+    },
+    BOU: {
+        primary: "bg-[#940e10]",
+        secondary: "bg-black"
+    },
+    CRY: {
+        primary: "bg-[#0e5ea9]",
+        secondary: "bg-[#9a89a1]"
+    },
+    LEE: {
+        primary: "bg-[#ffdf00]",
+        secondary: "bg-[#0c5e9a]"
+    },
+    NFO: {
+        primary: "bg-[#e13137]",
+        secondary: "bg-white"
+    },
+    TOT: {
+        primary: "bg-white",
+        secondary: "bg-[#000a3c]"
+    },
+    WHU: {
+        primary: "bg-[#7c2c3b]",
+        secondary: "bg-[#f5d23e]"
+    },
+    BUR: {
+        primary: "bg-[#5f0041]",
+        secondary: "bg-white"
+    },
+    WOL: {
+        primary: "bg-[#fdb913]",
+        secondary: "bg-black"
+    },
+
+    }

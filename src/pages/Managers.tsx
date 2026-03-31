@@ -45,8 +45,8 @@ export default function Managers() {
                                         {manager.formerClubs.map((formerClub)=>{
                                             return(
                                                 <div key={`${formerClub.name} ${formerClub.est}`} className="mt-5">
-                                                    <p>Name: {formerClub.name}</p>
-                                                    <p>est: {formerClub.est}</p>
+                                                    <p className="font-semibold border-b border-red-300">{formerClub.name}</p>
+                                                    <p className="pt-2">est: {formerClub.est}</p>
                                                     <p>Join Reason: {formerClub.reason}</p>
                                                     <p>Status: {formerClub.status}</p>
                                                 </div>

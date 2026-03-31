@@ -1,6 +1,7 @@
 import { getGwStatus, getHomeStats } from "@/api/api-functions"
 import type { GwStatus, HomeStatsList } from "@/lib/types"
 import { useEffect, useState } from "react"
+import { Spinner } from "./ui/spinner"
 
 export default function GwStatus() {
     const [status, setStatus] = useState<GwStatus | null>(null)
@@ -31,7 +32,7 @@ export default function GwStatus() {
                 <p>GW Bottom Scorer: {homeData[homeData.length - 1].name} ({homeData[homeData.length - 1].event_points})</p>
             </div>
         </div>
-        : <p>Loading...</p>}
+        : <Spinner className="size-8"/>}
     </div>
   )
 }

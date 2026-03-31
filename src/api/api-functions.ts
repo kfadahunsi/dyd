@@ -82,3 +82,18 @@ export async function getHomeStats() {
         console.error(err)
     }
 }
+
+export async function getLeagueTeams() {
+    try{
+        const response = await fetch("http://localhost:8000/league_teams")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch league teams")
+        }
+        const data = response.json()
+        //console.log("response was ok: ", data)
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}

@@ -84,3 +84,76 @@ export type HomeStats = {
 }
 
 export type HomeStatsList = HomeStats[]
+
+//export type TeamLookUp = "ARS" | "MCI" |"MUN" |"AVL" |"LIV" |"CHE" |"BRE" |"EVE"| "FUL"| "BHA" |"SUN" |"NEW" |"BOU" |"CRY"| "LEE"| "NFO" |"TOT"| "WHU" | "BUR" | "WOL"
+
+//modified object from the regular fpl player object to include name, team position as well as general info
+export type Basic = {
+  name: string;
+  team: string;
+  position: "GKP" | "DEF" | "MID" | "FWD"; // nice improvement
+}
+
+export type General = {
+  element: number;
+  position: number;
+  is_captain: boolean;
+  is_vice_captain: boolean;
+  multiplier: number;
+}
+
+export type ExplainedStat = {
+  name: string;
+  points: number;
+  value: number;
+  stat: string;
+};
+
+export type Explained = [ExplainedStat[], number][]
+
+export type Stats = {
+  minutes: number;
+  goals_scored: number;
+  assists: number;
+  clean_sheets: number;
+  goals_conceded: number;
+  own_goals: number;
+  penalties_saved: number;
+  penalties_missed: number;
+  yellow_cards: number;
+  red_cards: number;
+  saves: number;
+  bonus: number;
+  bps: number;
+  influence: number;
+  creativity: number;
+  threat: number;
+  ict_index: number;
+  starts: number;
+  expected_goals: number;
+  expected_assists: number;
+  expected_goal_involvements: number;
+  expected_goals_conceded: number;
+  clearances_blocks_interceptions: number;
+  recoveries: number;
+  tackles: number;
+  defensive_contribution: number;
+  total_points: number;
+  in_dreamteam: boolean;
+}
+
+export type Player = {
+  basic: Basic;
+  general: General;
+  explained: Explained;
+  stats: Stats;
+}
+
+export type ClubLineups = {
+  ASA: Player[], 
+  SSFC: Player[],
+  MMUFC: Player[],
+  SLS: Player[],
+  DDGP: Player[],
+  DTF: Player[],
+}

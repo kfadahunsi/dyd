@@ -1,6 +1,7 @@
 import { premList } from "@/data/lists"
+import type { Team } from "@/lib/types"
 
-type Team = keyof typeof premList
+
 
 export default function PlayerCircle({team}:{team: Team}) {
     

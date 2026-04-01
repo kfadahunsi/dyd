@@ -5,7 +5,7 @@ import { Spinner } from "./ui/spinner"
 
 export default function GwStatus() {
     const [status, setStatus] = useState<GwStatus | null>(null)
-    const [homeData, setHomeData] = useState<HomeStats | null>(null)
+    const [homeData, setHomeData] = useState<HomeStatsList | null>(null)
 
 
     useEffect(()=>{

@@ -23,7 +23,7 @@ export default function Cup() {
         <div className=" w-full flex flex-col items-center">
             <table className="table-auto border-collapse h-72 w-full lg:w-8/12">
                 <thead>
-                    <tr className="border-b bg-gray-200">
+                    <tr className="border-b bg-cup-table-header text-cup-table-header-foreground">
                         <th className="w-3/12">Team</th>
                         <th className="border-l lg:w-1/12">P</th>
                         <th className="lg:w-1/12">W</th>
@@ -37,7 +37,7 @@ export default function Cup() {
                 <tbody>
                     {Object.entries(cupTable).map(([name, stats], index)=>{
                         return(
-                            <tr key={name} className={`border-b ${index%2 === 0 ? "": "bg-amber-100"}`}>
+                            <tr key={name} className={`border-b ${index%2 === 0 ? "bg-cup-table-odds text-cup-table-odds-foreground": "bg-cup-table-evens text-cup-table-evens-foreground"}`}>
                                 <td className="pl-2">{name}</td>
                                 <td className="text-center border-l">{stats.played}</td>
                                 <td className="text-center">{stats.wins}</td>

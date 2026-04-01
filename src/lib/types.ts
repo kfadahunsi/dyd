@@ -1,3 +1,5 @@
+import { premList } from "@/data/lists"
+
 export type TeamList = HistTeam []
 
 export type HistTeam = {
@@ -157,3 +159,5 @@ export type ClubLineups = {
   DDGP: Player[],
   DTF: Player[],
 }
+
+export type Team = keyof typeof premList

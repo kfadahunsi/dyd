@@ -38,6 +38,18 @@
     --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
     --sidebar-border: oklch(0.925 0.005 214.3);
     --sidebar-ring: oklch(0.723 0.014 214.4);
+    --cup-table-header: oklch(92.8% 0.006 264.531);
+    --cup-table-header-foreground:black;
+    --cup-table-evens:oklch(96.2% 0.059 95.617);
+    --cup-table-evens-foreground: black;
+    --cup-table-odds: white;
+    --cup-table-odds-foreground: black;
+    --league-table-header: oklch(70.4% 0.191 22.216);
+    --league-table-header-foreground:black;
+    --league-table-evens:oklch(88.5% 0.062 18.334);
+    --league-table-evens-foreground: black;
+    --league-table-odds: white;
+    --league-table-odds-foreground: black;
 }
 
 .dark {
@@ -72,6 +84,18 @@
     --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.56 0.021 213.5);
+    --cup-table-header: oklch(92.8% 0.006 264.531);
+    --cup-table-header-foreground:black;
+    --cup-table-evens:oklch(96.2% 0.059 95.617);
+    --cup-table-evens-foreground: black;
+    --cup-table-odds: white;
+    --cup-table-odds-foreground: black;
+    --league-table-header: oklch(70.4% 0.191 22.216);
+    --league-table-header-foreground:black;
+    --league-table-evens:oklch(88.5% 0.062 18.334);
+    --league-table-evens-foreground: black;
+    --league-table-odds: white;
+    --league-table-odds-foreground: black;
 }
 
 @theme inline {
@@ -114,6 +138,18 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+    --color-cup-table-header: var(--cup-table-header);
+    --color-cup-table-header-foreground: var(--cup-table-header-foreground);
+    --color-cup-table-evens: var(--cup-table-evens);
+    --color-cup-table-evens-foreground: var(--cup-table-evens-foreground);
+    --color-cup-table-odds: var(--cup-table-odds);
+    --color-cup-table-odds-foreground: var(--cup-table-odds-foreground);
+    --color-league-table-header: var(--league-table-header);
+    --color-league-table-header-foreground: var(--league-table-header-foreground);
+    --color-league-table-evens: var(--league-table-evens);
+    --color-league-table-evens-foreground: var(--league-table-evens-foreground);
+    --color-league-table-odds: var(--league-table-odds);
+    --color-league-table-odds-foreground: var(--league-table-odds-foreground);
 }
 
 @layer base {

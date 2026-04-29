@@ -5,7 +5,7 @@ import Menu from "../components/Menu";
 
 export default function Layout() {
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="w-screen h-screen flex flex-col overflow-auto">
       <Header/>
       <Menu/>
       <Outlet/>

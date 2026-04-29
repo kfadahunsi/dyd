@@ -1,5 +1,6 @@
 import { getCupTable } from "@/api/api-functions"
 import FixturesAndResults from "@/components/FixturesAndResults"
+import Knockout from "@/components/Knockout"
 import type { CupTable } from "@/lib/types"
 import { useEffect, useState } from "react"
 
@@ -18,7 +19,7 @@ export default function Cup() {
     }, [])
     
   return (
-    <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center">
+    <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center border-2 overflow-auto">
         {cupTable &&
         <div className=" w-full flex flex-col items-center">
             <table className="table-auto border-collapse h-72 w-full lg:w-8/12">
@@ -53,6 +54,7 @@ export default function Cup() {
             </table>
         </div>}
         <FixturesAndResults/>
+        <Knockout/>
     </div>
   )
 }

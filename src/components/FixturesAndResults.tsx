@@ -11,7 +11,7 @@ export default function FixturesAndResults() {
         async function loadFixtures(){
             const leagueFixtures =  await getFixtures()
             const groupedFixtures = groupFixtures(leagueFixtures)
-            console.log(groupedFixtures)
+            //console.log(groupedFixtures)
             setFixtures(groupedFixtures)
         }
 
@@ -21,7 +21,25 @@ export default function FixturesAndResults() {
 
   return (
     <div className="mt-10 w-full h-full lg:flex lg:flex-row">
-        <div className="border border-blue-200 w-full flex flex-col items-center lg:w-3/6">
+        <div className="border border-green-300 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
+            <h3 className="h3">Fixtures</h3>
+            {fixtures ? Object.entries(fixtures).filter(
+                ([_fixtureNo,fixtureList])=>(fixtureList.every(
+                    (fixture)=>(fixture.home_score ===null)))).map(([fixtureNo,fixtureList])=>{
+                        return(
+                            <div key={fixtureNo} className="flex flex-col items-center">
+                                <h4 className="h4">Week {fixtureNo}</h4>
+                                {fixtureList.map((fixture)=>{
+                                    return(
+                                        <p key={`${fixture.home}${fixture.away}`}>{fixture.home} v {fixture.away}</p>
+                                    )
+                                })}
+                            </div>
+                        )
+                    })
+            : <p>Loading</p>}
+        </div>
+        <div className="border border-blue-200 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
             <h3 className="h3">Results</h3>
             {fixtures ? Object.entries(fixtures).filter(
                 ([_fixtureNo,fixtureList])=>(fixtureList.every(
@@ -39,24 +57,6 @@ export default function FixturesAndResults() {
                     })
             : <p>Loading</p>}
 
-        </div>
-        <div className="border border-green-300 w-full flex flex-col items-center  lg:w-3/6">
-            <h3 className="h3">Fixtures</h3>
-            {fixtures ? Object.entries(fixtures).filter(
-                ([_fixtureNo,fixtureList])=>(fixtureList.every(
-                    (fixture)=>(fixture.home_score ===null)))).map(([fixtureNo,fixtureList])=>{
-                        return(
-                            <div key={fixtureNo} className="flex flex-col items-center">
-                                <h4 className="h4">Week {fixtureNo}</h4>
-                                {fixtureList.map((fixture)=>{
-                                    return(
-                                        <p key={`${fixture.home}${fixture.away}`}>{fixture.home} v {fixture.away}</p>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })
-            : <p>Loading</p>}
         </div>
     </div>
   )

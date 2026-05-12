@@ -31,7 +31,11 @@ export default function FixturesAndResults() {
                                 <h4 className="h4">Week {fixtureNo}</h4>
                                 {fixtureList.map((fixture)=>{
                                     return(
-                                        <p key={`${fixture.home}${fixture.away}`}>{fixture.home} v {fixture.away}</p>
+                                        <div className="flex justify-center w-full gap-2 border-b-4" key={`${fixture.home}${fixture.away}`}>
+                                            <span className="w-20 text-center">{fixture.home}</span>
+                                            <span className="w-10 text-center">v</span>
+                                            <span className="w-20 text-center">{fixture.away}</span>
+                                        </div>
                                     )
                                 })}
                             </div>
@@ -49,7 +53,13 @@ export default function FixturesAndResults() {
                                 <h4 className="h4">Week {fixtureNo}</h4>
                                 {fixtureList.map((fixture)=>{
                                     return(
-                                        <p key={`${fixture.home}${fixture.away}`}>{fixture.home} {fixture.home_score} - {fixture.away_score} {fixture.away}</p>
+                                        <div className="flex justify-center w-full gap-2 border-b-4" key={`${fixture.home}${fixture.away}`}>
+                                            <span className="w-20 text-center">{fixture.home}</span>
+                                            <span className="text-center">{fixture.home_score}</span>
+                                            <span className="text-center">-</span>
+                                            <span className="text-center">{fixture.away_score}</span>
+                                            <span className="w-20 text-center">{fixture.away}</span>
+                                        </div>
                                     )
                                 })}
                             </div>

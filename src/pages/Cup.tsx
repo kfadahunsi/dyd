@@ -2,10 +2,12 @@ import { getCupTable } from "@/api/api-functions"
 import FixturesAndResults from "@/components/FixturesAndResults"
 import Knockout from "@/components/Knockout"
 import type { CupTable } from "@/lib/types"
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
+export const TableContext = createContext()
 export default function Cup() {
     const [cupTable, setCupTable] = useState<CupTable | null>(null)
+    
 
 
     useEffect(()=>{
@@ -54,7 +56,9 @@ export default function Cup() {
             </table>
         </div>}
         <FixturesAndResults/>
-        <Knockout/>
+        <TableContext.Provider value={cupTable}>
+            <Knockout/>
+        </TableContext.Provider>
     </div>
   )
 }

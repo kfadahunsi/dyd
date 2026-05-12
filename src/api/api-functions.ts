@@ -97,3 +97,63 @@ export async function getLeagueTeams() {
         console.error(err)
     }
 }
+
+export async function getSemis(){
+    try{
+        const response = await fetch("http://localhost:8000/semi_finals")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch league teams")
+        }
+        const data = response.json()
+        //console.log("response was ok: ", data)
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}
+
+export async function getSemiResults(){
+    try{
+        const response = await fetch("http://localhost:8000/semi_results")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch league teams")
+        }
+        const data = response.json()
+        //console.log("response was ok: ", data)
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}
+
+export async function getFinals(){
+    try{
+        const response = await fetch("http://localhost:8000/finals")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch league teams")
+        }
+        const data = response.json()
+        //console.log("response was ok: ", data)
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}
+
+export async function getWinner(){
+    try{
+        const response = await fetch("http://localhost:8000/winner")
+        if(!response.ok){
+            const err = await response.json()
+            throw new Error( err.detail || "Failed to fetch league teams")
+        }
+        const data = response.json()
+        //console.log("response was ok: ", data)
+        return data
+    }catch(err){
+        console.error(err)
+    }
+}

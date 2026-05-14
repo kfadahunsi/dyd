@@ -161,3 +161,9 @@ export type ClubLineups = {
 }
 
 export type Team = keyof typeof premList
+
+export type Semis = {
+  1: {home: string, away: string, home_score:number | null, away_score: number | null},
+  2: {home: string, away: string, home_score:number | null, away_score: number | null},
+
+}

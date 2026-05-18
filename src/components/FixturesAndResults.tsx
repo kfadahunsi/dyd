@@ -20,14 +20,14 @@ export default function FixturesAndResults() {
 
 
   return (
-    <div className="mt-10 w-full h-full lg:flex lg:flex-row">
+    <div className="mt-10 w-full lg:flex lg:flex-row">
         <div className="border border-green-300 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
             <h3 className="h3">Fixtures</h3>
             {fixtures && fixturesRemaining(fixtures) ? Object.entries(fixtures).filter(
                 ([_fixtureNo,fixtureList])=>(fixtureList.every(
                     (fixture)=>(fixture.home_score ===null)))).map(([fixtureNo,fixtureList])=>{
                         return(
-                            <div key={fixtureNo} className="flex flex-col items-center">
+                            <div key={fixtureNo} className="flex flex-col items-center mb-7">
                                 <h4 className="h4">Week {fixtureNo}</h4>
                                 {fixtureList.map((fixture)=>{
                                     return(
@@ -50,7 +50,7 @@ export default function FixturesAndResults() {
                 ([_fixtureNo,fixtureList])=>(fixtureList.every(
                     (fixture)=>(fixture.home_score !==null)))).map(([fixtureNo,fixtureList])=>{
                         return(
-                            <div key={fixtureNo} className="flex flex-col items-center">
+                            <div key={fixtureNo} className="flex flex-col items-center mb-7">
                                 <h4 className="h4">Week {fixtureNo}</h4>
                                 {fixtureList.map((fixture)=>{
                                     return(

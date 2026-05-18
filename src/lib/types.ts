@@ -167,3 +167,19 @@ export type Semis = {
   2: {home: string, away: string, home_score:number | null, away_score: number | null},
 
 }
+
+export type SemiResults = {
+  1: {home: string, away: string, home_score:number, away_score: number},
+  2: {home: string, away: string, home_score:number, away_score: number},
+
+}
+
+export type Finals = {
+  home: {name: string, score: number| null},
+  away: {name: string, score: number| null},
+}
+
+export type Winner = {
+  name: string, 
+  score: number
+}

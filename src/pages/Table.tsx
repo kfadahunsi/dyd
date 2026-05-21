@@ -21,8 +21,9 @@ import { useEffect, useState } from "react"
   
   return (
     <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center">
+      <h3 className="h3 mb-3">League Table</h3>
       {table ?       
-      <table className=" table-auto  border-collapse w-full h-72 lg:w-8/12 ">
+      <table className=" table-auto  border-collapse w-full h-72 lg:w-6/12 ">
         <thead>
           <tr className="border-b bg-league-table-header text-league-table-header-foreground">
             <th>Rank</th>

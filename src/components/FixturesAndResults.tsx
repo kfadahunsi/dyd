@@ -2,6 +2,7 @@ import { getFixtures } from "@/api/api-functions"
 import { fixturesComplete, fixturesRemaining, groupFixtures} from "@/lib/functions"
 import type { FixtureList} from "@/lib/types"
 import { useEffect, useState } from "react"
+import { Spinner } from "./ui/spinner"
 
 export default function FixturesAndResults() {
     const [fixtures, setFixtures] = useState<Record<string, FixtureList> | null>(null)
@@ -9,10 +10,18 @@ export default function FixturesAndResults() {
 
     useEffect(()=>{
         async function loadFixtures(){
-            const leagueFixtures =  await getFixtures()
-            const groupedFixtures = groupFixtures(leagueFixtures)
-            //console.log("this is grouped fixtures: ", groupedFixtures)
-            setFixtures(groupedFixtures)
+            try{
+                const leagueFixtures= await getFixtures()
+                console.log(leagueFixtures)
+                const groupedFixtures = groupFixtures(leagueFixtures)
+                //console.log("this is grouped fixtures: ", groupedFixtures)
+                setFixtures(groupedFixtures)
+
+            }
+            catch(err){
+                console.error(err)
+            }
+
         }
 
         loadFixtures()
@@ -42,7 +51,7 @@ export default function FixturesAndResults() {
                         )
                     })
             : fixtures && !fixturesRemaining(fixtures) ? <p>No fixtures yet, please check back when the new season starts.</p> 
-            :  <p>Loading</p>}
+            :  <Spinner className="size-6"/>}
         </div>
         <div className="border border-blue-200 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
             <h3 className="h3">Results</h3>
@@ -67,7 +76,7 @@ export default function FixturesAndResults() {
                         )
                     })
             : fixtures && fixturesComplete(fixtures) ? <p>No results yet, please check back from GW 27.</p> 
-            : <p>Loading</p>}
+            : <Spinner className="size-6"/>}
 
         </div>
     </div>

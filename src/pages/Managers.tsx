@@ -23,7 +23,7 @@ export default function Managers() {
                                         <div>
                                             <ManagerBadge src={manager.managerImg} alt={`${manager.name} profile`}/>
                                         </div>
-                                        <div className="flex items-center">
+                                        <div className="flex items-center mt-2 gap-4">
                                             <div>
                                                 <p>Current Club: {manager.club}</p>
                                                 <p>Established: {manager.est}</p>

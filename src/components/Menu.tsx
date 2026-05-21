@@ -6,32 +6,37 @@ const menuDetails = [
     displayText: "Home",
     },
     {
-    path: "managers",
+    path: "/managers",
     displayText: "Managers",
     },
     {
-    path: "table",
+    path: "/table",
     displayText: "Table",
     },
     {
-    path: "history",
+    path: "/history",
     displayText: "History",
     },
     {
-    path: "cup",
+    path: "/cup",
     displayText: "Cup",
     },
 ]
 export default function Menu() {
   return (
-    <nav className='flex gap-17 shrink-0 border-y-2 overflow-x-auto no-scrollbar whitespace-nowrap snap-x snap-mandatory px-4 scroll-pl-4 mt-2 lg:justify-center lg:border-b'>
-        {menuDetails.map((menuItem, menuIndex)=>{
-            return <NavLink 
-                        className="shrink-0 snap-start active:font-semibold" 
-                        key={menuIndex} 
-                        to={menuItem.path}>{menuItem.displayText}
-                    </NavLink>
-        })}
-    </nav>
+    <div className='w-full flex justify-center '>
+      <nav className='w-full lg:w-2/4 flex gap-10 border-2 h-9  overflow-x-auto no-scrollbar whitespace-nowrap snap-x snap-mandatory px-4 pl-4 mt-2 lg:justify-center lg:border lg:border-black lg:items-center lg:rounded'>
+          {menuDetails.map((menuItem, menuIndex)=>{
+              return <NavLink 
+                          className={({isActive})=>`shrink-0 snap-start px-2 rounded flex ${isActive ? "font-semibold bg-red-200" : ""}`}
+                          key={menuIndex} 
+                          to={menuItem.path}
+                          >{menuItem.displayText}
+                      </NavLink>
+          })}
+      </nav>
+    </div>
   )
 }
+
+//bg-[#C9EAFF]

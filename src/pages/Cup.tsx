@@ -1,20 +1,29 @@
 import { getCupTable } from "@/api/api-functions"
 import FixturesAndResults from "@/components/FixturesAndResults"
 import Knockout from "@/components/Knockout"
+import { Spinner } from "@/components/ui/spinner"
 import type { CupTable } from "@/lib/types"
 import { useEffect, useState } from "react"
 
 
 export default function Cup() {
     const [cupTable, setCupTable] = useState<CupTable | null>(null)
-    
+    const [loading, setLoading] = useState(false)
 
 
     useEffect(()=>{
         async function loadCupTable() {
-            const table = await getCupTable()
-            //console.log(table)
-            setCupTable(table)
+            setLoading(true)
+            try{
+                
+                const table = await getCupTable()
+                //console.log(table)
+                setCupTable(table)
+                setLoading(false)
+            }catch(err){
+                console.error(err)
+            }
+
 
         }
         loadCupTable()
@@ -22,8 +31,9 @@ export default function Cup() {
     
   return (
     <div className="prose h-full w-full pt-10 flex flex-col items-center lg:items-center border-2 overflow-auto">
-        {cupTable &&
         <div className=" w-full flex flex-col items-center">
+            <h3 className="h3 mb-3">Table</h3>
+            {(cupTable && !loading) ?
             <table className="table-auto border-collapse h-72 w-full lg:w-8/12">
                 <thead>
                     <tr className="border-b bg-cup-table-header text-cup-table-header-foreground">
@@ -53,8 +63,8 @@ export default function Cup() {
                         )
                     })}
                 </tbody>
-            </table>
-        </div>}
+            </table> : <Spinner className="size-8"/>}
+        </div>
         <FixturesAndResults/>
         <Knockout/>
     </div>

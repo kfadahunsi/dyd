@@ -7,10 +7,10 @@ to see your league ID as well in the response*/
 
 //const teamID = "224216"
 //const leagueID = "43953"
-
+const API_URL = import.meta.env.VITE_API_BASE_URL
 
 export async function getTable(){  
-    const res = await fetch("http://localhost:8000/league_table")
+    const res = await fetch(`${API_URL}/league_table`)
     if(!res.ok){
         const err = await res.json()
         throw new Error(err.detail || "Failed to fetch table data")
@@ -20,7 +20,7 @@ export async function getTable(){
 }
 
 export async function getCupTable() {
-        const response = await fetch("http://localhost:8000/cup_table")
+        const response = await fetch(`${API_URL}/cup_table`)
         if(!response.ok){
             const err = await response.json()
             throw new Error(err.detal || "Failed to fetch cup data")
@@ -30,7 +30,7 @@ export async function getCupTable() {
 }
 
 export async function getFixtures() {
-        const response = await fetch("http://localhost:8000/fixtures")
+        const response = await fetch(`${API_URL}/fixtures`)
         if(!response.ok){
             const err = await response.json()
             throw new Error(err.detail || "Failed to fetch fixture data")
@@ -41,7 +41,7 @@ export async function getFixtures() {
 }
 
 export async function getGwStatus() {
-        const response = await fetch("http://localhost:8000/gw_status")
+        const response = await fetch(`${API_URL}/gw_status`)
         if(!response.ok){
             const err = await response.json()
             throw new Error( err.detail || "Failed to fetch gw status")
@@ -51,7 +51,7 @@ export async function getGwStatus() {
 }
 
 export async function getHomeStats() {
-        const response = await fetch("http://localhost:8000/home_stats")
+        const response = await fetch(`${API_URL}/home_stats`)
         if(!response.ok){
             const err = await response.json()
             throw new Error( err.detail || "Failed to fetch gw status")
@@ -61,7 +61,7 @@ export async function getHomeStats() {
 }
 
 export async function getLeagueTeams() {
-        const response = await fetch("http://localhost:8000/league_teams")
+        const response = await fetch(`${API_URL}/league_teams`)
         if(!response.ok){
             const err = await response.json()
             throw new Error( err.detail || "Failed to fetch league teams")
@@ -72,7 +72,7 @@ export async function getLeagueTeams() {
 }
 
 export async function getSemis(){
-    const response = await fetch("http://localhost:8000/semi_finals")
+    const response = await fetch(`${API_URL}/semi_finals`)
     if(!response.ok){
         const err = await response.json()
         throw new Error( err.detail || "Failed to fetch league teams")
@@ -83,7 +83,7 @@ export async function getSemis(){
 }
 
 export async function getSemiResults(){
-    const response = await fetch("http://localhost:8000/semi_results")
+    const response = await fetch(`${API_URL}/semi_results`)
     if(!response.ok){
         const err = await response.json()
         throw new Error( err.detail || "Failed to fetch league teams")
@@ -93,7 +93,7 @@ export async function getSemiResults(){
 }
 
 export async function getFinals(){
-    const response = await fetch("http://localhost:8000/finals")
+    const response = await fetch(`${API_URL}/finals`)
     if(!response.ok){
         const err = await response.json()
         throw new Error( err.detail || "Failed to fetch league teams")
@@ -103,7 +103,7 @@ export async function getFinals(){
 }
 
 export async function getWinner(){
-    const response = await fetch("http://localhost:8000/winner")
+    const response = await fetch(`${API_URL}/winner`)
     if(!response.ok){
         const err = await response.json()
         throw new Error( err.detail || "Failed to fetch league teams")

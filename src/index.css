@@ -50,6 +50,7 @@
     --league-table-evens-foreground: black;
     --league-table-odds: white;
     --league-table-odds-foreground: black;
+    --background-gradient: linear-gradient(to right, #C9EAFF, white);
 }
 
 .dark {
@@ -96,6 +97,7 @@
     --league-table-evens-foreground: black;
     --league-table-odds: white;
     --league-table-odds-foreground: black;
+    --background-gradient: linear-gradient(to right, #203561, #0F172A );
 }
 
 @theme inline {
@@ -150,6 +152,7 @@
     --color-league-table-evens-foreground: var(--league-table-evens-foreground);
     --color-league-table-odds: var(--league-table-odds);
     --color-league-table-odds-foreground: var(--league-table-odds-foreground);
+    --color-background-gradient: var(--background-gradient)
 }
 
 @layer base {

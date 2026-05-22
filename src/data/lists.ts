@@ -1,5 +1,35 @@
-import asa from "/src/assets/asa.png";
+import asa from "/src/assets/asa.png"
+import ddgp from "/src/assets/ddgp.jpg"
+import dtf from "/src/assets/dtf.jpg"
+import mmufc from "/src/assets/mmufc.jpg"
+import sls from "/src/assets/sls.jpeg"
+import ssfc from "/src/assets/ssfc.jpeg"
+
 import kevwe from "/src/assets/managers/kevwe.png"
+import kola from  "/src/assets/managers/kola.jpg"
+import duey from  "/src/assets/managers/duey.jpg"
+import fisi from  "/src/assets/managers/fisi.jpg"
+import ade from  "/src/assets/managers/ade.jpg"
+import kp from  "/src/assets/managers/kp.jpg"
+
+import awfcC from "src/assets/champions/awfc.jpg"
+import dtfC from "src/assets/champions/dtf.jpg"
+import genericC from "src/assets/champions/generic.png"
+import lasaC from "src/assets/champions/lasa.jpeg"
+import mmufcC from "src/assets/champions/mmufc.jpg"
+import wogaC from "src/assets/champions/woga.jpg"
+
+
+import awfcR from "src/assets/relegated/awfc.jpg"
+import cpfcR from "src/assets/relegated/cpfc.jpg"
+import dnnR from "src/assets/relegated/dnn.jpg"
+import genericR from "src/assets/relegated/generic.png"
+import lasaR from "src/assets/relegated/lasa.jpeg"
+import rbfbR from "src/assets/relegated/rbfb.jpeg"
+import wogaR from "src/assets/relegated/woga.jpg"
+import ysmR from "src/assets/relegated/ysm.jpeg"
+
+
 
 export const managerList = [
     {
@@ -18,33 +48,33 @@ export const managerList = [
         club: "Darwin's Theory Futbol",
         acronym: "KF1",
         name: "Kola Fadahunsi",
-        badgeImage: "../src/assets/dtf.jpg",
+        badgeImage: dtf,
         twitter: "https://x.com/DarwinsTheory_",
         est: 2022,
         formerClubs: [{name: "Sarri for Yourself", est: 2018, reason: "New Member", status: "Rebranded"}, {name: "Law Abiding Sigurdssons", est: 2019, reason: "Rebrand", status: "Relegated"}],
-        managerImg: "../src/assets/managers/kola.jpg",
+        managerImg: kola,
         teamAcronym: "DTF",
     },
     {
         club: "Saint Laurent Slot",
         acronym: "FA",
         name: "Fisayo Ayodeji",
-        badgeImage: "../src/assets/sls.jpeg",
+        badgeImage: sls,
         twitter: "https://x.com/SLS__FC",
         est: 2024,
         formerClubs: [{name: "Rather You Than Mee", est: 2017, reason: "Founder", status: "Relegated"}, {name: "AstroWorld FC", est: 2018, reason: "New Entrant", status: "Relegated"}],
-        managerImg: "../src/assets/managers/fisi.jpg",
+        managerImg: fisi,
         teamAcronym: "SLS",
     },
     {
         club: "Maatsen Margiela United FC",
         acronym: "AP",
         name: "Ademide Peters",
-        badgeImage: "../src/assets/mmufc.jpg",
+        badgeImage: mmufc,
         twitter: "https://x.com/MaatsenMargiela",
         est: 2023,
         formerClubs: [{name: "A1won Boys", est: 2017, reason: "Founder", status: "Rebranded"}, {name: "Chapman Papi FC", est: 2018, reason: "Rebrand", status: "Rebranded"}, {name: "Old Town Rose FC", est: 2019, reason: "Rebrand", status: "Rebranded"}, {name: "Chapman Papi FC", est: 2019, reason: "Rebrand", status: "Relegated"}, {name: "Yves Saint Maximin", est: 2021, reason: "New Entrant", status: "Relegated"}],
-        managerImg: "../src/assets/managers/ade.jpg",
+        managerImg: ade,
         teamAcronym: "MMUFC",
 
     },
@@ -52,11 +82,11 @@ export const managerList = [
         club: "Super Slimey Futbol",
         acronym: "AA",
         name: "Afolabi Adebajo",
-        badgeImage: "../src/assets/ssfc.jpeg",
+        badgeImage: ssfc,
         twitter: "https://x.com/FcSlimey",
         est: 2019,
         formerClubs: [{name: "A7's Warriors", est: 2017, reason: "Founder", status: "Rebranded"}, {name: "Duey Not Nice", est: 2017, reason: "Rebrand", status: "Relegated"}],
-        managerImg: "../src/assets/managers/duey.jpg",
+        managerImg: duey,
         teamAcronym: "SSFC",
 
     },
@@ -64,11 +94,11 @@ export const managerList = [
         club: "Duck Duck Guus Poyet",
         acronym: "KA",
         name: "Kolapo Akande",
-        badgeImage: "../src/assets/ddgp.jpg",
+        badgeImage: ddgp,
         twitter: "https://x.com/JiSungParkBusFC",
         est: 2025,
         formerClubs: [{name: "Pique Blinders FC", est: 2018, reason: "New Member", status: "Rebranded"}, {name: "Red Bull Faults-Burg", est: 2020, reason: "Rebrand", status: "Relegated"},{name: "Ji Sung Park The Bus FC", est:2021, reason: "New entrant", status: "Rebranded"} ],
-        managerImg: "../src/assets/managers/kp.jpg",
+        managerImg: kp,
         teamAcronym: "DDGP",
     },
 ]
@@ -79,56 +109,56 @@ export const championsList = [
         manager: "Kevwe Fadahunsi",
         year: "17/18",
         points: 0,
-        img: "../src/assets/champions/generic.png",
+        img: genericC,
     },
     {
         name: "Astroworld FC",
         manager: "Fisayo Ayodeji",
         year: "18/19",
         points: 0,
-        img: "../src/assets/champions/awfc.jpg",
+        img: awfcC,
     },
     {
         name: "Law Abiding Sigurdssons",
         manager: "Kola Fadahunsi",
         year: "19/20",
         points: 0,
-        img: "../src/assets/champions/lasa.jpeg",
+        img: lasaC,
     },
     {
         name: "Law Abiding Sigurdssons",
         manager: "Kola Fadahunsi",
         year: "20/21",
         points: 0,
-        img: "../src/assets/champions/lasa.jpeg",
+        img: lasaC,
     },
     {
         name: "WaivereDalot of Gems",
         manager: "Kevwe Fadahunsi",
         year: "21/22",
         points: 0,
-        img: "../src/assets/champions/woga.jpg",
+        img: wogaC,
     },
     {
         name: "Darwins Theory Futbol",
         manager: "Kola Fadahunsi",
         year: "22/23",
         points: 0,
-        img: "../src/assets/champions/dtf.jpg",
+        img: dtfC,
     },
      {
         name: "Darwins Theory Futbol",
         manager: "Kola Fadahunsi",
         year: "23/24",
         points: 0,
-        img: "../src/assets/champions/dtf.jpg",
+        img: dtfC,
     },
     {
         name: "Maatsen Margiela United FC",
         manager: "Ademide Peters",
         year: "24/25",
         points: 0,
-        img: "../src/assets/champions/mmufc.jpg",
+        img: mmufcC,
     },
 ]
 
@@ -138,56 +168,56 @@ export const relegationList = [
         manager: "Fisayo Ayodeji",
         year: "17/18",
         points: 1697,
-        img: "../src/assets/relegated/generic.png",
+        img: genericR,
     },
     {
         name: "Duey Not Nice",
         manager: "Afolabi Adebajo",
         year: "18/19",
         points: 1699,
-        img: "../src/assets/relegated/dnn.jpg",
+        img: dnnR,
     },
     {
         name: "Chapman Papi",
         manager: "Ademide Peters",
         year: "19/20",
         points: 1588,
-        img: "../src/assets/relegated/cpfc.jpg",
+        img: cpfcR,
     },
     {
         name: "Red Bull Faults-Burg",
         manager: "Kolapo Akande",
         year: "20/21",
         points: 1781,
-        img: "../src/assets/relegated/rbfb.jpeg",
+        img: rbfbR,
     },
     {
         name: "Law Abiding Sigurdssons",
         manager: "Kola Fadahunsi",
         year: "21/22",
         points: 1740,
-        img: "../src/assets/relegated/lasa.jpeg",
+        img: lasaR,
     },
     {
         name: "Yves Saint Maximin",
         manager: "Ademide Peters",
         year: "22/23",
         points: 1651,
-        img: "../src/assets/relegated/ysm.jpeg",
+        img: ysmR,
     },
      {
         name: "Astroworld FC",
         manager: "Fisayo Ayodeji",
         year: "23/24",
         points: 1769,
-        img: "../src/assets/relegated/awfc.jpg",
+        img: awfcR,
     },
     {
         name: "WaivereDalot of Gems Athletic",
         manager: "Kevwe Fadahunsi",
         year: "24/25",
         points: 1732,
-        img: "../src/assets/relegated/woga.jpg",
+        img: wogaR,
     },
 ]
 

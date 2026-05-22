@@ -34,7 +34,7 @@ export default function Cup() {
         <div className=" w-full flex flex-col items-center">
             <h3 className="h3 mb-3">Table</h3>
             {(cupTable && !loading) ?
-            <table className="table-auto border-collapse h-72 w-full lg:w-8/12">
+            <table className="table-auto border-collapse h-72 w-full lg:w-8/12 border-2">
                 <thead>
                     <tr className="border-b bg-cup-table-header text-cup-table-header-foreground">
                         <th className="w-3/12">Team</th>

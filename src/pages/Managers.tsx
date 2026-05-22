@@ -9,7 +9,7 @@ import { Bird } from "lucide-react"
 export default function Managers() {
     
   return (
-    <div className="flex flex-col items-center overflow-y-auto mt-5 pt-3 gap-5 border-2 border-t-gray-200">
+    <div className="flex flex-col items-center overflow-y-auto mt-5 pt-3 gap-5">
         {managerList.map((manager)=>{
             return <div key={manager.name} className="w-10/12 lg:w-5/12">
                         <Card className="border border-red-100">

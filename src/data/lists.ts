@@ -1,13 +1,16 @@
+import asa from "/src/assets/asa.png";
+import kevwe from "/src/assets/managers/kevwe.png"
+
 export const managerList = [
     {
         club: "Amassing Silvaware Athletic",
         acronym: "KF",
         name: "Kevwe Fadahunsi",
-        badgeImage: "../src/assets/asa.png",
+        badgeImage: asa,
         twitter: "https://x.com/AS_Athletic",
         est: 2025,
         formerClubs: [{name: "Loic Remy Boys", est: 2017, reason: "Founder", status: "Rebranded"}, {name: "WaivereDalot of Gems", est: 2018, reason: "Rebrand", status: "Relegated"}],
-        managerImg: "../src/assets/managers/kevwe.png",
+        managerImg: kevwe,
         teamAcronym: "ASA",
 
     },

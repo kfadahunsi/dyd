@@ -36,7 +36,7 @@ export default function Knockout() {
         loadData()
     }, [])
   return (
-    <div className="border w-full flex flex-col items-center">
+    <div className="border w-full flex flex-col items-center mb-10">
         <h3 className="h3">Knockout</h3>
         <div className="flex flex-col items-center w-full ">
             <div className="flex flex-col items-center mb-5">

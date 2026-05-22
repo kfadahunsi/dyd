@@ -4,7 +4,7 @@ import { Spinner } from "@/components/ui/spinner"
 import type { TableObj } from "@/lib/types"
 import { ArrowDown, ArrowUp, Minus } from "lucide-react"
 import { useEffect, useState } from "react"
-console.log(import.meta.env.VITE_API_BASE_URL)
+
  export default function Table() {
   const [table, setTable] = useState<TableObj | null>(null)
 

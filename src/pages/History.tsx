@@ -23,7 +23,7 @@ export default function History() {
   }
 
   return (
-    <div className="flex flex-col mt-5 gap-2">
+    <div className="flex flex-col mt-5 gap-2 w-full h-full">
       <div className="flex justify-evenly">
         <h4 className={`h4 cursor-pointer ${activeTeam === "champions" && "underline"}`} onClick={handleChampions}>Champions</h4>
         <h4 className={`h4 cursor-pointer ${activeTeam === "relegated" && "underline"}`} onClick={handleRelegated}>Relegated</h4>

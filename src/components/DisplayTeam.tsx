@@ -26,7 +26,7 @@ export default function DisplayTeam() {
     <div className="w-full mt-5 flex flex-col items-center">
         <h3 className="h3 mb-5">Lineups</h3>
         {leagueTeamList ? 
-        <Carousel className="w-9/12 lg:w-8/12 " opts={{loop: true}}>
+        <Carousel className="w-9/12 lg:w-8/12 mb-10" opts={{loop: true}}>
             <CarouselContent>
                 {Object.entries(leagueTeamList).map(([name, team])=>{
                     return(

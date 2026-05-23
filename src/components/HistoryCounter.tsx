@@ -11,7 +11,7 @@ export default function HistoryCounter({teams, team}: {teams: TeamList, team: st
     const kf = countManager("Kevwe Fadahunsi", teams)
 
   return (
-    <div className="mt-10">
+    <div className="my-10">
         {team === "relegated" && <h2 className="h2"> Relegation Counter 🧮</h2>}
         {team === "champions" && <h2 className="h2"> Champions Counter 🧮</h2>}
         <div className="flex flex-col items-center gap-6 mt-10">

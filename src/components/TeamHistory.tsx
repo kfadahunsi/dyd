@@ -8,7 +8,7 @@ export default function TeamHistory({teams}: {teams: TeamList}) {
         {teams.map((team)=>{
             return (
                 <div key={team.year} className="w-11/12 lg:w-5/12">
-                    <Card className="border-yellow-500 border">
+                    <Card className="border-red-500 border">
                         <CardHeader>
                             <CardTitle>{team.year}: {team.name}</CardTitle>
                         </CardHeader>

@@ -15,7 +15,7 @@ export default function TeamHistory({teams}: {teams: TeamList}) {
                         <CardContent className="flex flex-row justify-between">
                            <div>
                              <p>Manager: {team.manager}</p>
-                            {team.points != 0 && <p>Points: <span className="text-red-400">{team.points}</span></p>}
+                            {team.points != 0 && <p>Points: <span className="text-red-400">{team.points}{team.name === "Loic Remy Boys" && "+"}</span></p>}
                            </div>
                            <div>
                             {team.img !== "" && <TeamBadge src={team.img} alt={`${team.name} badge`}/>}

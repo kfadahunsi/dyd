@@ -108,7 +108,7 @@ export const championsList = [
         name: "Loic Remy Boys",
         manager: "Kevwe Fadahunsi",
         year: "17/18",
-        points: 1957,
+        points: 1956,
         img: genericC,
     },
     {

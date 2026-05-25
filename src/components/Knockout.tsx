@@ -81,7 +81,7 @@ export default function Knockout() {
                     <span className="w-40 text-center">{finalists.away.name}</span>
                 </div> : null}
             </div>
-            {champion && <h2 className="h2 my-5 text-center">The {year-1}/{year} DYD Cup Champion is {champion.name}🎉</h2>}
+            {champion && <h2 className="h2 my-5 text-center">The {year-1}/{year} DYD Cup Winner is {champion.name}🎉</h2>}
         </div>
     </div>
   )

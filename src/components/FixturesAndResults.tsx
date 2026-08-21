@@ -1,84 +1,175 @@
 import { getFixtures } from "@/api/api-functions"
-import { fixturesComplete, fixturesRemaining, groupFixtures} from "@/lib/functions"
-import type { FixtureList} from "@/lib/types"
+import { fixturesRemaining, groupFixtures } from "@/lib/functions"
+import type { FixtureList } from "@/lib/types"
 import { useEffect, useState } from "react"
 import { Spinner } from "./ui/spinner"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Badge } from "./ui/badge"
+import { Calendar, CheckCircle2 } from "lucide-react"
 
 export default function FixturesAndResults() {
-    const [fixtures, setFixtures] = useState<Record<string, FixtureList> | null>(null)
+  const [fixtures, setFixtures] = useState<Record<string, FixtureList> | null>(null)
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
+    async function loadFixtures() {
+      try {
+        setLoading(true)
+        const leagueFixtures = await getFixtures()
+        const groupedFixtures = groupFixtures(leagueFixtures)
+        setFixtures(groupedFixtures)
+      } catch (err) {
+        console.error("Error fetching fixtures:", err)
+      } finally {
+        setLoading(false)
+      }
+    }
 
-    useEffect(()=>{
-        async function loadFixtures(){
-            try{
-                const leagueFixtures= await getFixtures()
-                console.log(leagueFixtures)
-                const groupedFixtures = groupFixtures(leagueFixtures)
-                //console.log("this is grouped fixtures: ", groupedFixtures)
-                setFixtures(groupedFixtures)
+    loadFixtures()
+  }, [])
 
-            }
-            catch(err){
-                console.error(err)
-            }
+  if (loading) {
+    return (
+      <div className="w-full flex justify-center py-8">
+        <Spinner className="size-8 text-primary" />
+      </div>
+    )
+  }
 
-        }
+  if (!fixtures) {
+    return null
+  }
 
-        loadFixtures()
-    }, [])
+  const hasRemaining = fixturesRemaining(fixtures)
 
+  // Fixtures that are pending
+  const pendingWeeks = Object.entries(fixtures).filter(([, list]) =>
+    list.some((f) => f.home_score === null)
+  )
+
+  // Fixtures that are completed
+  const completedWeeks = Object.entries(fixtures).filter(([, list]) =>
+    list.some((f) => f.home_score !== null)
+  )
 
   return (
-    <div className="mt-10 w-full lg:flex lg:flex-row">
-        <div className="border border-green-300 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
-            <h3 className="h3">Fixtures</h3>
-            {fixtures && fixturesRemaining(fixtures) ? Object.entries(fixtures).filter(
-                ([_fixtureNo,fixtureList])=>(fixtureList.every(
-                    (fixture)=>(fixture.home_score ===null)))).map(([fixtureNo,fixtureList])=>{
-                        return(
-                            <div key={fixtureNo} className="flex flex-col items-center mb-7">
-                                <h4 className="h4">Week {fixtureNo}</h4>
-                                {fixtureList.map((fixture)=>{
-                                    return(
-                                        <div className="flex justify-center w-full gap-2 border-b-4" key={`${fixture.home}${fixture.away}`}>
-                                            <span className="w-45 text-center">{fixture.home}</span>
-                                            <span className="w-10 text-center">v</span>
-                                            <span className="w-45 text-center">{fixture.away}</span>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })
-            : fixtures && !fixturesRemaining(fixtures) ? <p>No fixtures yet, please check back when the new season starts.</p> 
-            :  <Spinner className="size-6"/>}
-        </div>
-        <div className="border border-blue-200 w-full flex flex-col items-center lg:w-3/6 overflow-auto">
-            <h3 className="h3">Results</h3>
-            {fixtures && !fixturesComplete(fixtures) ? Object.entries(fixtures).filter(
-                ([_fixtureNo,fixtureList])=>(fixtureList.every(
-                    (fixture)=>(fixture.home_score !==null)))).map(([fixtureNo,fixtureList])=>{
-                        return(
-                            <div key={fixtureNo} className="flex flex-col items-center mb-7">
-                                <h4 className="h4">Week {fixtureNo}</h4>
-                                {fixtureList.map((fixture)=>{
-                                    return(
-                                        <div className="flex justify-center w-full gap-2 border-b-4" key={`${fixture.home}${fixture.away}`}>
-                                            <span className="w-40 text-center lg:w-45">{fixture.home}</span>
-                                            <span className="text-center">{fixture.home_score}</span>
-                                            <span className="text-center">-</span>
-                                            <span className="text-center">{fixture.away_score}</span>
-                                            <span className="w-40 text-center lg:w-45">{fixture.away}</span>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        )
-                    })
-            : fixtures && fixturesComplete(fixtures) ? <p>No results yet, please check back from GW 27.</p> 
-            : <Spinner className="size-6"/>}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+      {/* Upcoming Fixtures */}
+      <Card className="border border-border bg-card shadow-sm overflow-hidden">
+        <CardHeader className="pb-3 border-b border-border bg-muted/20">
+          <div className="flex items-center gap-2">
+            <Calendar className="size-4 text-primary" />
+            <CardTitle className="text-base font-bold text-foreground">
+              Upcoming Fixtures
+            </CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent className="p-4 space-y-4">
+          {hasRemaining && pendingWeeks.length > 0 ? (
+            pendingWeeks.map(([weekNo, matchArray]) => (
+              <div key={`fixture-week-${weekNo}`} className="space-y-2">
+                <div className="flex items-center justify-between pb-1">
+                  <Badge variant="outline" className="text-xs font-mono font-semibold">
+                    Week {weekNo}
+                  </Badge>
+                </div>
+                <div className="space-y-1.5">
+                  {matchArray
+                    .filter((f) => f.home_score === null)
+                    .map((fixture) => (
+                      <div
+                        key={`${fixture.home}-${fixture.away}`}
+                        className="flex items-center justify-between p-2.5 rounded-xl bg-background/60 border border-border/60 text-xs sm:text-sm"
+                      >
+                        <span className="font-semibold text-foreground flex-1 text-right truncate pr-2" title={fixture.home}>
+                          {fixture.home}
+                        </span>
+                        <span className="shrink-0 px-2.5 py-0.5 rounded-full bg-muted font-bold text-xs text-muted-foreground">
+                          vs
+                        </span>
+                        <span className="font-semibold text-foreground flex-1 text-left truncate pl-2" title={fixture.away}>
+                          {fixture.away}
+                        </span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-6 text-sm text-muted-foreground">
+              All cup group fixtures have concluded.
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
-        </div>
+      {/* Match Results */}
+      <Card className="border border-border bg-card shadow-sm overflow-hidden">
+        <CardHeader className="pb-3 border-b border-border bg-muted/20">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="size-4 text-emerald-500" />
+            <CardTitle className="text-base font-bold text-foreground">
+              Match Results
+            </CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent className="p-4 space-y-4">
+          {completedWeeks.length > 0 ? (
+            completedWeeks.map(([weekNo, matchArray]) => (
+              <div key={`result-week-${weekNo}`} className="space-y-2">
+                <div className="flex items-center justify-between pb-1">
+                  <Badge variant="secondary" className="text-xs font-mono font-semibold">
+                    Week {weekNo}
+                  </Badge>
+                </div>
+                <div className="space-y-1.5">
+                  {matchArray
+                    .filter((f) => f.home_score !== null)
+                    .map((fixture) => {
+                      const homeWon = (fixture.home_score ?? 0) > (fixture.away_score ?? 0)
+                      const awayWon = (fixture.away_score ?? 0) > (fixture.home_score ?? 0)
+
+                      return (
+                        <div
+                          key={`${fixture.home}-${fixture.away}`}
+                          className="flex items-center justify-between p-2.5 rounded-xl bg-background/60 border border-border/60 text-xs sm:text-sm"
+                        >
+                          <span
+                            className={`flex-1 text-right truncate pr-2 ${
+                              homeWon
+                                ? "font-bold text-foreground"
+                                : "font-medium text-muted-foreground"
+                            }`}
+                            title={fixture.home}
+                          >
+                            {fixture.home}
+                          </span>
+                          <span className="shrink-0 px-2.5 py-0.5 rounded-md bg-muted font-mono font-bold text-xs text-foreground">
+                            {fixture.home_score} - {fixture.away_score}
+                          </span>
+                          <span
+                            className={`flex-1 text-left truncate pl-2 ${
+                              awayWon
+                                ? "font-bold text-foreground"
+                                : "font-medium text-muted-foreground"
+                            }`}
+                            title={fixture.away}
+                          >
+                            {fixture.away}
+                          </span>
+                        </div>
+                      )
+                    })}
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center py-6 text-sm text-muted-foreground">
+              No results played yet. Results will appear once cup matchdays start.
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   )
 }

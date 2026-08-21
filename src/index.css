@@ -85,19 +85,19 @@
     --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.56 0.021 213.5);
-    --cup-table-header: oklch(92.8% 0.006 264.531);
-    --cup-table-header-foreground:black;
-    --cup-table-evens:oklch(96.2% 0.059 95.617);
-    --cup-table-evens-foreground: black;
-    --cup-table-odds: white;
-    --cup-table-odds-foreground: black;
-    --league-table-header: oklch(70.4% 0.191 22.216);
-    --league-table-header-foreground:black;
-    --league-table-evens:oklch(88.5% 0.062 18.334);
-    --league-table-evens-foreground: black;
-    --league-table-odds: white;
-    --league-table-odds-foreground: black;
-    --background-gradient: linear-gradient(to right, #203561, #0F172A );
+    --cup-table-header: oklch(0.32 0.02 264.5);
+    --cup-table-header-foreground: oklch(0.987 0.002 197.1);
+    --cup-table-evens: oklch(0.25 0.015 264.5);
+    --cup-table-evens-foreground: oklch(0.987 0.002 197.1);
+    --cup-table-odds: oklch(0.20 0.01 264.5);
+    --cup-table-odds-foreground: oklch(0.987 0.002 197.1);
+    --league-table-header: oklch(0.38 0.12 25.3);
+    --league-table-header-foreground: oklch(0.987 0.002 197.1);
+    --league-table-evens: oklch(0.25 0.02 25.3);
+    --league-table-evens-foreground: oklch(0.987 0.002 197.1);
+    --league-table-odds: oklch(0.20 0.01 25.3);
+    --league-table-odds-foreground: oklch(0.987 0.002 197.1);
+    --background-gradient: linear-gradient(135deg, #0b1329 0%, #1e293b 50%, #0f172a 100%);
 }
 
 @theme inline {

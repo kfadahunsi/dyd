@@ -5,8 +5,8 @@ when you fetch your team data. you will then be able
 to see your league ID as well in the response*/
 
 
-//const teamID = "224216"
-//const leagueID = "43953"
+//const teamID = "1097"
+//const leagueID = "521"
 const API_URL = import.meta.env.VITE_API_BASE_URL
 
 export async function getTable(){  
@@ -23,7 +23,7 @@ export async function getCupTable() {
         const response = await fetch(`${API_URL}/cup_table`)
         if(!response.ok){
             const err = await response.json()
-            throw new Error(err.detal || "Failed to fetch cup data")
+            throw new Error(err.detail || "Failed to fetch cup data")
         }
         const data =  await response.json()
         return data

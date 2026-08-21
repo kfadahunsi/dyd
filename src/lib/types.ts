@@ -16,7 +16,7 @@ export type TableObj= {
     "Maatsen Margiela Utd": ClubTableDetails, 
     "Saint Laurent Slot": ClubTableDetails, 
     "Darwin’s Theory": ClubTableDetails, 
-    "Duck Duck Guus Poyet": ClubTableDetails, 
+    "De Vrij Fish Futbol": ClubTableDetails, 
 
 }
 
@@ -46,7 +46,7 @@ export type CupTable = {
     DTF: CupStats,
     SLS: CupStats,
     MMUFC: CupStats,
-    DDGP: CupStats,
+    DVFF: CupStats,
 }
 
 export type Fixture = {
@@ -156,7 +156,7 @@ export type ClubLineups = {
   SSFC: Player[],
   MMUFC: Player[],
   SLS: Player[],
-  DDGP: Player[],
+  DVFF: Player[],
   DTF: Player[],
 }
 

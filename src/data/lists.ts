@@ -91,15 +91,15 @@ export const managerList = [
 
     },
     {
-        club: "Duck Duck Guus Poyet",
+        club: "De Vrij Fish Futbol",
         acronym: "KA",
         name: "Kolapo Akande",
         badgeImage: ddgp,
         twitter: "https://x.com/JiSungParkBusFC",
-        est: 2025,
-        formerClubs: [{name: "Pique Blinders FC", est: 2018, reason: "New Member", status: "Rebranded"}, {name: "Red Bull Faults-Burg", est: 2020, reason: "Rebrand", status: "Relegated"},{name: "Ji Sung Park The Bus FC", est:2021, reason: "New entrant", status: "Rebranded"} ],
+        est: 2026,
+        formerClubs: [{name: "Pique Blinders FC", est: 2018, reason: "New Member", status: "Rebranded"}, {name: "Red Bull Faults-Burg", est: 2020, reason: "Rebrand", status: "Relegated"},{name: "Ji Sung Park The Bus FC", est:2021, reason: "New entrant", status: "Rebranded"}, {name: "Duck Duck Guus Poyet", est: 2025, reason: "Rebrand", status: "Relegated"} ],
         managerImg: kp,
-        teamAcronym: "DDGP",
+        teamAcronym: "DVFF",
     },
 ]
 
@@ -160,6 +160,13 @@ export const championsList = [
         points: 1786,
         img: mmufcC,
     },
+    {
+        name: "Super Slimey Futbol",
+        manager: "Afolabi Adebajo",
+        year: "25/26",
+        points: 1865,
+        img: ssfc,
+    },
 ]
 
 export const relegationList = [
@@ -218,6 +225,13 @@ export const relegationList = [
         year: "24/25",
         points: 1732,
         img: wogaR,
+    },
+    {
+        name: "Duck Duck Guus Poyet",
+        manager: "Kolapo Akande",
+        year: "25/26",
+        points: 1539,
+        img: ddgp,
     },
 ]
 

@@ -34,3 +34,15 @@ export function fixturesComplete(gFixtures: Record<string, FixtureList>) {
     week.every((fixture) => fixture.home_score === null)
   )
 }
+
+export function getErrorMessage(err: unknown, fallback: string) {
+  /*the api sends a reason in `detail` for problems it knows about, eg the cup
+  fixture file being missing or out of step with the league config, and
+  api-functions.ts rethrows that as the Error message. a network or cors failure
+  rejects inside fetch() with a TypeError before there is any body to read, so
+  those keep the friendlier fallback rather than showing "Failed to fetch".*/
+  if (err instanceof TypeError) {
+    return fallback
+  }
+  return err instanceof Error && err.message ? err.message : fallback
+}

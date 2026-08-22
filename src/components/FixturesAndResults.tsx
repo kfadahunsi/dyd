@@ -1,8 +1,9 @@
 import { getFixtures } from "@/api/api-functions"
-import { fixturesRemaining, groupFixtures } from "@/lib/functions"
+import { fixturesRemaining, getErrorMessage, groupFixtures } from "@/lib/functions"
 import type { FixtureList } from "@/lib/types"
 import { useEffect, useState } from "react"
 import { Spinner } from "./ui/spinner"
+import { ErrorCard } from "./ui/error-card"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 import { Badge } from "./ui/badge"
 import { Calendar, CheckCircle2 } from "lucide-react"
@@ -10,21 +11,24 @@ import { Calendar, CheckCircle2 } from "lucide-react"
 export default function FixturesAndResults() {
   const [fixtures, setFixtures] = useState<Record<string, FixtureList> | null>(null)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  async function loadFixtures() {
+    try {
+      setLoading(true)
+      setError(null)
+      const leagueFixtures = await getFixtures()
+      const groupedFixtures = groupFixtures(leagueFixtures)
+      setFixtures(groupedFixtures)
+    } catch (err) {
+      console.error("Error fetching fixtures:", err)
+      setError(getErrorMessage(err, "Unable to load cup fixtures. Please check your connection or retry in a moment."))
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    async function loadFixtures() {
-      try {
-        setLoading(true)
-        const leagueFixtures = await getFixtures()
-        const groupedFixtures = groupFixtures(leagueFixtures)
-        setFixtures(groupedFixtures)
-      } catch (err) {
-        console.error("Error fetching fixtures:", err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
     loadFixtures()
   }, [])
 
@@ -33,6 +37,17 @@ export default function FixturesAndResults() {
       <div className="w-full flex justify-center py-8">
         <Spinner className="size-8 text-primary" />
       </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <ErrorCard
+        title="Fixtures Unavailable"
+        message={error}
+        onRetry={loadFixtures}
+        isRetrying={loading}
+      />
     )
   }
 

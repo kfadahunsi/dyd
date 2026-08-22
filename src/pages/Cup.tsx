@@ -5,6 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { ErrorCard } from "@/components/ui/error-card"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { CupTable } from "@/lib/types"
+import { getErrorMessage } from "@/lib/functions"
 import { Trophy } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -21,7 +22,7 @@ export default function Cup() {
       setCupTable(table)
     } catch (err) {
       console.error("Error loading cup table:", err)
-      setError("Unable to load cup group standings. Please try again or check back shortly.")
+      setError(getErrorMessage(err, "Unable to load cup group standings. Please try again or check back shortly."))
     } finally {
       setLoading(false)
     }

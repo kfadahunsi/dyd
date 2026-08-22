@@ -85,7 +85,7 @@ export const managerList = [
         badgeImage: ssfc,
         twitter: "https://x.com/FcSlimey",
         est: 2019,
-        formerClubs: [{name: "A7's Warriors", est: 2017, reason: "Founder", status: "Rebranded"}, {name: "Duey Not Nice", est: 2017, reason: "Rebrand", status: "Relegated"}],
+        formerClubs: [{name: "A7's Warriors", est: 2017, reason: "Founder", status: "Rebranded"}, {name: "Duey Not Nice", est: 2018, reason: "Rebrand", status: "Relegated"}],
         managerImg: duey,
         teamAcronym: "SSFC",
 
